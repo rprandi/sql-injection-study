@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <title>XML Injection - Create User</title>
+</head>
+
+<script type="text/javascript">
+    function handleSubmit()
+    {
+        let login = $('input[name=login]').val();
+        let password = $('input[name=password]').val();
+
+        let xml = "\<users\>\<user\>\<login\>"+login+"\<\/login\>\<password\>"+password+"\<\/password\>\<\/user\>\<\/users\>"
+        // alert(xml);
+
+        $.post('http://localhost:3000/users', {xml: xml });
+        return false;
+    }
+</script>
+
+<body>
+    <p> Crie seu usuário</p>
+    <form onSubmit="handleSubmit()">
+        Login: <input id='login' name="login" type="text" value="usuario" /> <br />
+        Senha: <input id='password' name="password" type="text" value="senha" /> <br />
+        <button type="submit" value="Submit">Submit</button>
+    </form>
+
+dica de injection: <textarea>password</password></user><user><login>LoginMalicioso</login><password>SenhaMaliciosa</password></user><user><login>teste</login><password>teste</textarea>
+</body>
+</html>
