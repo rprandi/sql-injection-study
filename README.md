@@ -8,8 +8,8 @@ Para executar:
 
 - Suba o banco com `docker-compose up`
 - Rode `bundle` na pasta
-- rode `rake db:up` para criar o banco corretamente
-- rode `rake db:migrate` para executar a migração que cria a tabela users
+- rode `rails db:setup` para criar o banco corretamente
+- rode `rails db:migrate` para executar a migração que cria a tabela users
 
 Utilizando:
 
